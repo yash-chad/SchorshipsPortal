@@ -1,0 +1,18 @@
+{% extends 'base_layout.html' %}
+
+{% block content%}
+    <div>This is a listr</div>
+    {% for scholarship in scholarships %}
+    <div style="margin-left: 100px;margin-bottom: 10px;">
+        <div class="card" style="width: 18rem">
+            <!-- <img class="card-img-top" src="../static/{{ scholarship.thumb.url }}" alt="Card image cap"> -->
+            <div class="card-body">
+            <h5 class="card-title"><b>{{ scholarship.title }}</b></h5>          
+            <p class="card-text">{{ scholarship.snippet }}</p>
+            <p class="card-text"><b>Domain</b>:{{ scholarship.domain }}</p>
+            <a href="/scholarships/{{scholarship.slug}}" class="btn btn-primary"> Details..</a>
+            </div>
+        </div>
+        
+    {% endfor %}
+{% endblock %}

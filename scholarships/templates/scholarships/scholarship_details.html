@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+
+{% block content%}
+    <div>{{scholarship.title}}</div>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="../../static/{{ scholarship.thumb.url }}" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">{{ scholarship.title }}</h5>
+            <p class="card-text">{{ scholarship.body }}</p>
+            <a href="#" class="btn btn-primary">Details..</a>
+            </div>
+        </div>
+{% endblock %}
