@@ -293,7 +293,7 @@ main{
 .login{
     display: inline-block;
     position: absolute;
-    top: 50%;
+    top: 40%;
     transform: translate(17%,-35%);
     margin:auto;
     /* background-color: red; */
@@ -323,7 +323,7 @@ main{
 
 #Sign{
     font-size: 2.5em;
-    margin: 00px 0px 50px;
+    margin: 00px 0px 55px;
     letter-spacing: 0.1rem;
 }
 
@@ -341,9 +341,18 @@ main{
     border-bottom: 1px solid rgba(255,255,255,0.6);
     padding: 7px 0px;
     font-size: 1.1em;
-    margin:0px 0px 30px;
+    margin:0px 0px 20px;
     background:transparent;
     /* background-color: pink; */
+}
+
+.f-name{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.field{
+    width: 98%;
 }
 
 .right input:active,.right input:focus{

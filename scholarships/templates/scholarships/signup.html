@@ -6,7 +6,7 @@
     <title>Signup</title>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     <script src="https://kit.fontawesome.com/cdb8be5d1b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{ % static css/style.css %}">
 </head>
 <body class="babies">
     <div class="login-logo">
@@ -18,8 +18,19 @@
         <div class="login">
             <h1 id="Sign">Sign Up</h1>
             <form class="sign-form" action="">
+                <div class="f-name">
+                    <div class="field">
+                        <label for="">First Name</label>
+                        <input type="text" ><br>
+                    </div>
+                    <div class="field">
+                        <label for="">Last Name</label>
+                        <input type="text" ><br>
+                    </div>
+                </div>
                 <label for="">Email</label>
                 <input type="email"><br>
+                
                 <label for="">Username</label>
                 <input type="text" ><br>
                 <label for="">Password</label>
