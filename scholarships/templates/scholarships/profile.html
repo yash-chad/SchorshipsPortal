@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-    <script src="https://kit.fontawesome.com/cdb8be5d1b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="city">
+{% extends 'base_layout.html' %}
+
+{% block content%}
+<div class="city">
     <header>
         <div class="logo-container">   
             <section class="logo">
@@ -39,7 +31,7 @@
        <div class="container">
             <div class="profile-container">
                 <div class="dp">
-                    <img class="dp-img" src="/images/t2.jpg" alt="profile picture">
+                    <img class="dp-img" src="../../static/images/t2.jpg" alt="profile picture">
                 </div>
                 <div class="username">
                    <h1>Username</h1> 
@@ -71,4 +63,5 @@
             </div>
        </div>
     </main>
-</body>
+</div>
+{% endblock %}

@@ -5,8 +5,16 @@ from scholarships.models import Scholarship
 
 def scholarship_list(request):
     scholarships = Scholarship.objects.all()
-    return render(request, 'scholarships/scholarship_list.html', { 'scholarships': scholarships })
+    return render(request, 'scholarships/all.html', { 'scholarships': scholarships })
 
 def scholarship_details(request,slug):
+    scholarships = Scholarship.objects.all()
     scholarship = Scholarship.objects.get(slug=slug)
-    return render(request, 'scholarships/scholarship_details.html', { 'scholarship': scholarship })
+    return render(request, 'scholarships/detail.html', { 'scholarship': scholarship , 'scholarships': scholarships})
+
+
+def profile_page(request):
+    return render(request, 'scholarships/profile.html')
+
+def edit_profile(request):
+    return render(request, 'scholarships/edit_profile.html')

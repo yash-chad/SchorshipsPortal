@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profile</title>
-    
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-    <script src="https://kit.fontawesome.com/cdb8be5d1b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="city">
+{% extends 'base_layout.html' %}
+
+{% block content%}
+<div class="city">
     <header>
         <div class="logo-container">   
             <section class="logo">
@@ -66,7 +58,7 @@
                         </label>
 
                         <div class="doc">
-                           <input type="file" id="browse" class="browse" accept=".pdf , .doc , .docx" value="selected_doc">
+                           <input type="file" id="browse" class="browse" value="selected_doc">
                         </div>
                     </div>
                 </div>
@@ -78,5 +70,5 @@
             </div>
        </div>
     </main>
-</body>
-</html>
+</div>
+{% endblock %}
