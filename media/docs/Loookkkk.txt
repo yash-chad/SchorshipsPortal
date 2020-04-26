@@ -1,0 +1,10 @@
+opacity:0.5  https://www.w3schools.com/css/css_background.asp
+Margin collapse 50+20=50 Applicable only for top bottom margin 
+max/min height/width (scroll bar nahi add karta)
+vertical-align: https://www.w3schools.com/css/tryit.asp?filename=trycss_vertical-align
+The text-indent property is used to specify the indentation of the first line of a text
+overflow:hidden,text-overflow:ellipsis	https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_text-overflow
+font-size in vw for responsive text ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::IMP
+
+
+

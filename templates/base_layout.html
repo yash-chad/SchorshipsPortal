@@ -1,4 +1,4 @@
-{% load static  %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +8,7 @@
     
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     <script src="https://kit.fontawesome.com/cdb8be5d1b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static css/style.css %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body class="city">
     <header>
@@ -22,15 +22,15 @@
         <nav class="top-nav">
             <ul class="nav-links">
                 {% if user.is_authenticated %}
-                <li>
-                    <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
-                        {% csrf_token %}
-                        <button class="out"><a class="nav-link" href="">Logout</a></button>
-                    </form>
-                </li>
+                    <li>
+                        <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button class="out"><a class="nav-link" href="">Logout</a></button>
+                        </form>
+                    </li>
                 {% else %}
-                <li><button  class="in"><a class="nav-link" href="{% url 'accounts:login' %}">Login</a></button></li>
-                <li><button  class="out"><a class="nav-link" href="{% url 'accounts:signup' %}">Signup</a></button></li>
+                    <li><button  class="in"><a class="nav-link" href="{% url 'accounts:login' %}">Login</a></button></li>
+                    <li><button  class="out"><a class="nav-link" href="{% url 'accounts:signup' %}">Signup</a></button></li>
                 {% endif %}
             </ul>
         </nav>

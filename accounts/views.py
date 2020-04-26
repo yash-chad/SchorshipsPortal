@@ -23,7 +23,7 @@ from django.core.mail import EmailMessage
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from  .scholarships.models import Profile
+from scholarships.models import Profile
 
 # Create your views here.
 # def signup_view(request):
@@ -56,13 +56,13 @@ def signup(request):
             })
 
             to_email = form.cleaned_data.get('email')
-            me = ''
-            my_password = ""
+            me = 'variegatedlark@gmail.com'
+            my_password = "rockhopp"
             you = to_email
 
             msg = MIMEMultipart('alternative')
             msg['Subject'] = "Activate your blog account."
-            msg['From'] = '' 
+            msg['From'] = 'variegatedlark@gmail.com' 
             msg['To'] = to_email
             part2 = MIMEText(message, 'html')
             msg.attach(part2)
@@ -121,7 +121,7 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         login(request, user)
-        profile = Profile(User=user)
+        profile = Profile(User=user,profile_img='default.png')
         profile.save()
         return render(request,'accounts/sent.html')
         # return redirect('scholarships:scholarship_list')

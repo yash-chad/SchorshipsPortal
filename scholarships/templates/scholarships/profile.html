@@ -1,42 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-    <script src="https://kit.fontawesome.com/cdb8be5d1b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-   
-</head>
-<body class="city">
-    <header>
-        <div class="logo-container">   
-            <section class="logo">
-                <i class="fab fa-accusoft"></i>
-            </section>
-            <h2 class="name">Ataraxia</h2>
-        </div>
-        
-        <nav class="top-nav">
-            <ul class="nav-links">
-                <li ><button class="in "><a class="nav-link" href="  ">Login</a></button></li>
-                <li><button class="out"><a class="nav-link"  href="">Signup</a></button></li>
-                <li><button class="out"><a class="nav-link" href="">Logout</a></button></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <nav class="side-nav">
-            <ul class="side-links">
-                <li class="side-link"><a href=""><ion-icon name="apps"></ion-icon></a></li><!--All-->
-                <li class="side-link"><a href=""><ion-icon name="today"></ion-icon></a></li><!--Personal-->
-                <li class="side-link"><a href=""><ion-icon name="heart-circle"></ion-icon></a></li><!--Star-->
-                <li class="side-link"><a href=""><ion-icon name="chatbubbles"></ion-icon></a></li><!--Star-->
-                <li class="side-link"><a href=""><img src="" alt="">Pro</a></li><!--Profile-->
-            </ul>
-        </nav>
+{% extends 'base_layout.html' %}
+
+{% block content %}
        <div class="container">
             <div class="profile-container">
                 <div class="dp">
@@ -62,7 +26,7 @@
                                 {% if profile.Resume %}
                                 <!-- display resume link -->
                                 Your resume: <br><br>
-                                <a style="color:rgba(0,0,0,0.7); font-style: italic;font-weight: normal;font-size:90% ;" href="{{profile.Resume.url}}">{{profile.Resume.name}}</a>
+                                <a  href="{{profile.Resume.url}}">{{profile.Resume.name}}</a>
                                 {% else %}
                                     <p>You have not uploaded your resume/marksheet.Do it now by clicking on 'Edit Profile' to get personalized scholarships</p>
                                 {% endif %}
@@ -80,5 +44,4 @@
                 <button class="edit">Edit Profile</button>
             </div>
        </div>
-    </main>
-</body>
+  {% endblock %}
