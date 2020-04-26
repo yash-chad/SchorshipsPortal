@@ -626,6 +626,10 @@ main{
     font-weight: 500;
 }
 
+.editname{
+    display: flex;
+}
+
 .resume a{
     color:rgba(0,0,0,0.7);
      font-style: italic;
@@ -694,6 +698,8 @@ main{
     margin:0px 10px
 }
 
+
+
 .edit-save:hover,.edit-cancel:hover,.edit-save:active,.edit-cancel:active{
     box-shadow: 2px 3px 5px lightgrey;
 }
@@ -715,6 +721,11 @@ main{
     background-color: #fff;
     border: 1px solid rgb(247, 92, 92) ;
     color: rgb(247, 92, 92);
+}
+
+.edit-cancel a{
+    text-decoration: none;
+    color: rgb(247, 92, 92) ;
 }
 
 .change-dp{

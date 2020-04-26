@@ -24,6 +24,24 @@ def profile(request):
         profile = Profile.objects.get(User=tempuser)  
         return render(request,'scholarships/profile.html',{'user':tempuser,'profile':profile})
     else:
-        return HttpResponse("Create an account to see your profile")
+        return HttpResponse("Login to see your profile")
     
 
+def edit(request):
+    
+    if request.user=='POST':
+        User = request.user
+        profile=Profile.objects.get(User=User)
+        profile.User.username = request.GET.get('username')
+        profile.User.email =request.GET.get('email')
+        profile.User.first_name = request.GET.get('firstname')
+        profile.User.last_name =request.GET.get('lastname') 
+        profile.save()
+        profile.profile_img = request.FILES('pfp')
+        profile.Resume = request.FILES('resume')
+        return redirect('scholarships:profile',{'profile':profile})
+    else:
+        user = request.user
+        profile=Profile.objects.get(User=user)
+        return render(request,'scholarships/edit_profile.html',{'profile':profile})
+    
