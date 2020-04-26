@@ -121,7 +121,7 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         login(request, user)
-        profile = Profile(User=user,profile_img='default.png')
+        profile = Profile(User=user,profile_img='images/default.png')
         profile.save()
         return render(request,'accounts/sent.html')
         # return redirect('scholarships:scholarship_list')
