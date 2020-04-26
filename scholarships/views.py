@@ -13,8 +13,8 @@ def scholarship_details(request,slug):
     return render(request, 'scholarships/detail.html', { 'scholarship': scholarship , 'scholarships': scholarships})
 
 
-def profile_page(request):
-    return render(request, 'scholarships/profile.html')
+# def profile_page(request):
+#     return render(request, 'scholarships/profile.html')
 
-def edit_profile(request):
-    return render(request, 'scholarships/edit_profile.html')
+# def edit_profile(request):
+#     return render(request, 'scholarships/edit_profile.html')
