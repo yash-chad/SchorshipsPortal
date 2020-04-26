@@ -1,13 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     <script src="https://kit.fontawesome.com/cdb8be5d1b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   
 </head>
 <body class="city">
     <header>
@@ -39,26 +40,35 @@
        <div class="container">
             <div class="profile-container">
                 <div class="dp">
-                    <img class="dp-img" src="/images/t2.jpg" alt="profile picture">
+                    <img class="dp-img" src="{{ profile.profile_img.url }}" alt="profile picture">
                 </div>
                 <div class="username">
-                   <h1>Username</h1> 
+                   <h1>{{profile.User.username}}</h1> 
                 </div>
                 <div class="parts">
                     <div class="p1">
                         <label for="">Name:</label>
                         <div class="fullname">
-                           Firstname Lastname
+                            {{profile.User.first_name}} {{profile.User.last_name}}
                         </div><br>
                         <label for="">E-mail:</label>
                         <div class="mail">
-                            name@x.com
+                            {{profile.User.email}}
                         </div>
                     </div>
                     <div class="p2">
                         <div class="stat">
-                            Update your profile
-                            <!-- Display doc link or so -->
+                            <div class="resume">
+                                {% if profile.Resume %}
+                                <!-- display resume link -->
+                                Your resume: <br><br>
+                                <a style="color:rgba(0,0,0,0.7); font-style: italic;font-weight: normal;font-size:90% ;" href="{{profile.Resume.url}}">{{profile.Resume.name}}</a>
+                                {% else %}
+                                    <p>You have not uploaded your resume/marksheet.Do it now by clicking on 'Edit Profile' to get personalized scholarships</p>
+                                {% endif %}
+                            </div>
+                            
+                            
                         </div>
 
                         <!-- <div class="doc">

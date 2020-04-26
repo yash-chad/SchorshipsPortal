@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Scholarship(models.Model):
@@ -17,3 +18,16 @@ class Scholarship(models.Model):
 
     def snippet(self):
         return self.body[:100] + '...'
+
+class Profile(models.Model):
+    User = models.OneToOneField(User,on_delete=models.CASCADE)
+    Resume = models.FileField(upload_to='media/docs/',default=None,null=True,blank=True)
+    profile_img = models.ImageField(upload_to='media/images/', blank=True, null=True)
+
+    def __str__(self):
+        return self.User.username
+    
+
+
+    
+    
