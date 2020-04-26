@@ -15,7 +15,7 @@ def scholarship_details(request,slug):
 
 
 def edit(request):
-        return HttpResponse("Edit Profile")
+    pass
 
 @login_required(login_url="/accounts/login/")
 def profile(request):
