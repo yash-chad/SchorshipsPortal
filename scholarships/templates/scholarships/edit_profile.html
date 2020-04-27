@@ -1,7 +1,17 @@
-{% extends 'base_layout.html' %}
 
-{% block content%}
-<div class="city">
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script src="https://kit.fontawesome.com/cdb8be5d1b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="city">
     <header>
         <div class="logo-container">   
             <section class="logo">
@@ -30,43 +40,53 @@
         </nav>
        <div class="container">
             <div class="profile-container">
-                <div class="dp">
-                    <img class="dp-img" src="/images/t2.jpg" alt="profile picture">
-                    <div class="change-dp">
-                        <input type="file" accept="image/*"  name="" id="cam">
-                        <label id="cam-label" for="cam"><ion-icon name="image"></ion-icon></label>
-                    </div>
-                </div>
-                <div class="username">
-                   <input class="edit-username" spellcheck="false" autofocus="autofocus" onfocus="this.select();" value="Username" required > 
-                </div>
-                <div class="parts">
-                    <div class="p1">
-                        <label for="">Name:</label>
-                        <div class="fullname">
-                          <input class="edit-input" type="text" value="Firstname Lastname" onfocus="this.select()" spellcheck="false" required> 
-                        </div><br>
-                        <label for="">E-mail:</label>
-                        <div class="mail">
-                            <input class="edit-input myInputText" type="email" onfocus="this.select();" value="Mail@g.com" required>
-                        </div>
-                    </div>
-                    <div class="p2">
-                        <label for="browse" class="stat">
-                            Update/Add your resume
-                            <!-- Display doc link or so -->
-                        </label>
-
-                        <div class="doc">
-                           <input type="file" id="browse" class="browse" value="selected_doc">
-                        </div>
-                    </div>
-                </div>
-                <div class="btns">
-                    <button class="edit-save">Save</button>
-                    <button class="edit-cancel">Cancel</button>
-                </div>
                 
+                <form action="{% url 'scholarships:edit' %}" method="post">
+                    {% csrf_token %}
+                    <div class="dp">
+                        <img name='pfp' class="dp-img" src="{{ profile.profile_img.url }}" alt="profile picture">
+                        <div class="change-dp">
+                            <input type="file" accept="image/*"  name="" id="cam">
+                            <label id="cam-label" for="cam"><ion-icon name="image"></ion-icon></label>
+                        </div>
+                    </div>
+                    
+                    <div class="username">
+                        <input class="edit-username" spellcheck="false" autofocus="autofocus" onfocus="this.select();" value="{{profile.User.username}}" name="username" required > 
+                    </div>
+                    <div class="parts">
+                        <div class="p1">
+                            <label for="">Name:</label>
+                            <div class="fullname editname">
+                            <input class="edit-input" style="width: 30%;float: left;" type="text" name="firstname" value="{{ profile.User.first_name}}" onfocus="this.select()" spellcheck="false" required> 
+                            <input class="edit-input" style="width: 30%;float: left;" type="text" name="lastname" value="{{ profile.User.last_name}}" onfocus="this.select()" spellcheck="false" required> 
+                            </div><br>
+                            <label for="">E-mail:</label>
+                            <div class="mail">
+                                <input class="edit-input myInputText" type="email" onfocus="this.select();" name = "email" value="{{ profile.User.email}}" required>
+                            </div>
+                        </div>
+                        <div class="p2">
+                            <label for="browse" class="stat">
+                                {% if profile.Resume  %}
+                                   <p>Update your resume</p> 
+                                {% else %}
+                                    <p> Add your resume</p>
+                                {% endif %}
+                                <!-- Display doc link or so -->
+                            </label>
+    
+                            <div class="doc">
+                                <input type="file" id="browse" name="resume" class="browse"  value="{{profile.Resume}}">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="btns">
+                        <button type="submit" class="edit-save">Save</button>
+                        <button type="reset" class="edit-cancel"><a href="{% url 'scholarships:profile' %}">Cancel</a></button>
+                    </div>
+                </form>  
             </div>
        </div>
     </main>
