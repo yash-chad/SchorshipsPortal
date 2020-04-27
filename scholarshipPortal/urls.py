@@ -22,7 +22,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('scholarships/',include('scholarships.urls')),
-    path('chat/',include('talking_bot.urls'))
+    path('chat/',include('talking_bot.urls')),
     path('accounts/',include('accounts.urls'))
 ]
 

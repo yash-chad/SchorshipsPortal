@@ -23,7 +23,7 @@ def train(request):
 	stemmer = LancasterStemmer()
 	
 	global data
-	with open('E:\\MAIN\\intents.json') as file:
+	with open('D:\Desktop\DjangoNinja\Project\intents.json') as file:
 		data = json.load(file)
 	global words
 	global labels
