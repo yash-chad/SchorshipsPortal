@@ -1,0 +1,110 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up", "Hey!"],
+         "responses": ["Hello!", "Good to see you again!", "Hi there, how can I help?"]
+      
+        },
+        {"tag": "goodbye",
+         "patterns": ["See you later", "Goodbye", "bye"],
+         "responses": ["Sad to see you go :(", "Talk to you later", "Goodbye!"]
+
+        },
+        {"tag": "name",
+         "patterns": ["how can you help me?","what are you","who are you", "what can you do", "what is your name","what are your interests?"],
+         "responses": ["Hey! I am a bot designed to help you with your scholarship related doubts."]
+     
+        },
+        {"tag": "qualify",
+         "patterns": ["If i dont have enough GPA, should I still apply?","Should we apply for a scholarship if we aren’t eligible?"],
+         "responses": ["No. If you don't meet the criteria exactly you shouldn't apply. Scholarship offers typically receive thousands of applications. Anyone who doesn't meet the requirements is typically disqualified."]
+ 
+        },
+        {"tag": "criteria1",
+         "patterns": ["What are the criterias", "Are there any criterias?"],
+         "responses": ["To be eligible to apply for an academic scholarship, the following criteria must be met:All academic scholarships shall be awarded for use in an academic degree-granting program in a college or university.To be considered for an academic scholarship, all applicants must submit a completed application form through the online application portal."]
+    
+        },
+        {"tag": "criteria2",
+         "patterns": ["Do scholarships have criterias?","who all can apply for a scholarship", "Can i apply to any scholarship", "What are the criterias", "how can i get a scholarship"],
+         "responses": ["Anyone can apply for any scholarship. You just need to make sure you are eligible", "Anyone. Every scholarship has a different set of criterias. Just make sure you are eligible"]
+    
+        },
+        {"tag": "selection",
+         "patterns": ["How does a winner gets chosen?","How does the scholarship provider choose a winner?", "On what basis we get selected","How does selection work", "Who gets a scholarship"],
+         "responses": ["Each scholarship provider is looking for different skills or interests. A winner must meet all of the standard criteria required for the scholarship but also distinguish himself from the rest of the applicants. Read about the scholarship and try to determine what exactly the scholarship provider is looking for so that you can emphasize your related qualities in you essay or cover letter.",
+         	"Scholarships aren’t awarded just to students with a 4.0 GPA. Each scholarship has its own criteria. Some scholarships are awarded based on need. For others, you must be a member of an organization, be studying a certain field or fit whatever guidelines the group awarding the money decides upon."]
+        
+        },
+        {"tag": "importance",
+         "patterns": ["Are scholarships really helpful?", "Does everyone need to apply for a scholarship", "importance of scholarship"],
+         "responses": ["You should definitely apply for scholarships in the college of your choice. After all, a scholarship comes with numerous benefits.", "Getting a scholarship takes away all your financial concerns. Thus, it gives you more time to study, gain knowledge and secure better grades. You get ample time to look for opportunities for skill development and knowledge enhancement."]
+      
+        },
+        {"tag": "definition",
+         "patterns": ["what is a scholarship","what does scholarship mean?", "what are scholarships", "tell me about scholarship"],
+         "responses": ["Scholarships are financial aid awards designed to help students pay for an undergraduate degree. Sometimes a scholarship is a one-time check. Other school scholarships are renewable and provide money for students each semester or school year."]
+
+        },
+        {"tag": "application",
+         "patterns": ["how can i apply for a scholarship", "apply for scholarships", "are application for scholarship still open?"],
+         "responses": ["You can go directly to the websites of the respective universities. Or just go to the application section of our website and you could find all scholarships in just one click"]
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful"],
+         "responses": ["Happy to help!", "Any time!", "My pleasure"]
+        },
+        {"tag": "question",
+         "patterns": ["can we get a scholarship without having any academic achievements?"],
+         "responses": ["There are many scholarships with no requirements.Scholarships with no requirements usually have many applicants because it takes very little time to actually complete the application."]
+
+        },
+        {"tag": "question2",
+         "patterns": ["does academics count while applying.","are acdemics considered?","are academic achievements taken into consideration?", "do they consider acdemics?", "i have good academics what are my chances."],
+         "responses": ["Yes student benefit a lot while applying. When students apply to academic scholarships, they often have to show proof of their achievement in the classroom."]
+
+        },
+        {"tag": "question3",
+         "patterns": ["how are you?", "feelings?"],
+         "responses": ["I am fine. What can I help you with"]
+
+        },
+        {"tag": "question4",
+         "patterns": ["are there engineering scholarships","are there scholarships in medical field?", "are there scholarships post my 12th?", "are there scholarships in every field"],
+         "responses": ["Yes there are scholarships in every field. Also you get a ton of options."]
+
+        },
+        {"tag": "question5",
+         "patterns": ["what else can you do?"],
+         "responses": ["I can make a joke."]
+
+        },
+        {"tag": "question6",
+         "patterns": ["are there scholarships for physically challenged, disabled?"],
+         "responses": ["Yes. There are scholarships to suit everyone. Please visit our scholarships page to know more."]
+
+        },
+        {"tag": "joke",
+         "patterns": ["Tell me a joke", "make a joke"],
+         "responses": ["there was a man who sent 10 puns to some friends in hopes at least one  of the puns would make them laugh. unfortunately no pun in ten did!!!", "What do you get when you cross a murderer and frosted flakes? A cereal killer.","I never forget a face, but in your case I'll make an exception."
+            ,"It is better to be silent and be thought a fool, than to open your mouth and remove all doubt."]
+  
+        },
+        {"tag": "tips",
+         "patterns": ["what things should i keep in mind while applying for a scholarship", "tips for applying a scholarship?"],
+         "responses": ["BE CAREFUL  BE HONEST  BE THOROUGH  BE DELIGIENT  BE ON TIME"]
+
+        },
+        {"tag": "direction",
+         "patterns": ["any suggestions for application?","can you suggest some Scholarships","Where could I find scholarships? ", "what are the best scholarships that i can apply for", "fetch me top 10 scholarships available."],
+         "responses": ["Please visit out scholarship section for details. Dont forget to sign up first.", "For this we have dedicated a whole page. Please head on to scholarship section"]
+        },
+        {"tag": "specific",
+         "patterns": ["Top 10 engineering scholarships", "top scholarships for physically challenged", "scholarships after 12th", "scholarships for commerce students"],
+         "responses": ["Please visit our scholarship page for detailed information."]
+  
+        }
+
+
+
+   ]
+}

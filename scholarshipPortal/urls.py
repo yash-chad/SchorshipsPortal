@@ -19,7 +19,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('scholarships/',include('scholarships.urls'))
+    path('scholarships/',include('scholarships.urls')),
+    path('chat/',include('talking_bot.urls'))
 ]
 
 
