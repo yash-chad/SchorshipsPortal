@@ -1,0 +1,74 @@
+{% extends 'base_layout.html' %}
+
+{% block content%}
+<div class="city">
+    <header>
+        <div class="logo-container">   
+            <section class="logo">
+                <i class="fab fa-accusoft"></i>
+            </section>
+            <h2 class="name">Ataraxia</h2>
+        </div>
+        
+        <nav class="top-nav">
+            <ul class="nav-links">
+                <li ><button class="in "><a class="nav-link" href="  ">Login</a></button></li>
+                <li><button class="out"><a class="nav-link"  href="">Signup</a></button></li>
+                <li><button class="out"><a class="nav-link" href="">Logout</a></button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <nav class="side-nav">
+            <ul class="side-links">
+                <li class="side-link"><a href=""><ion-icon name="apps"></ion-icon></a></li><!--All-->
+                <li class="side-link"><a href=""><ion-icon name="today"></ion-icon></a></li><!--Personal-->
+                <li class="side-link"><a href=""><ion-icon name="heart-circle"></ion-icon></a></li><!--Star-->
+                <li class="side-link"><a href=""><ion-icon name="chatbubbles"></ion-icon></a></li><!--Star-->
+                <li class="side-link"><a href=""><img src="/images/t2.jpg" alt=""></a></li><!--Profile-->
+            </ul>
+        </nav>
+       <div class="container">
+            <div class="profile-container">
+                <div class="dp">
+                    <img class="dp-img" src="/images/t2.jpg" alt="profile picture">
+                    <div class="change-dp">
+                        <input type="file" accept="image/*"  name="" id="cam">
+                        <label id="cam-label" for="cam"><ion-icon name="image"></ion-icon></label>
+                    </div>
+                </div>
+                <div class="username">
+                   <input class="edit-username" spellcheck="false" autofocus="autofocus" onfocus="this.select();" value="Username" required > 
+                </div>
+                <div class="parts">
+                    <div class="p1">
+                        <label for="">Name:</label>
+                        <div class="fullname">
+                          <input class="edit-input" type="text" value="Firstname Lastname" onfocus="this.select()" spellcheck="false" required> 
+                        </div><br>
+                        <label for="">E-mail:</label>
+                        <div class="mail">
+                            <input class="edit-input myInputText" type="email" onfocus="this.select();" value="Mail@g.com" required>
+                        </div>
+                    </div>
+                    <div class="p2">
+                        <label for="browse" class="stat">
+                            Update/Add your resume
+                            <!-- Display doc link or so -->
+                        </label>
+
+                        <div class="doc">
+                           <input type="file" id="browse" class="browse" value="selected_doc">
+                        </div>
+                    </div>
+                </div>
+                <div class="btns">
+                    <button class="edit-save">Save</button>
+                    <button class="edit-cancel">Cancel</button>
+                </div>
+                
+            </div>
+       </div>
+    </main>
+</div>
+{% endblock %}
