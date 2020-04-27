@@ -1,0 +1,73 @@
+
+{% extends 'base_layout.html' %}
+{% block content%}
+<div class="devs">
+    <header>
+        <div class="logo-container">
+            
+            <section class="logo">
+                <i class="fab fa-accusoft"></i>
+            </section>
+           
+            <h2 class="name">Ataraxia</h2>
+        </div>
+        
+        <nav class="top-nav">
+            <ul class="nav-links">
+                <li ><button class="in "><a class="nav-link" href="  ">Login</a></button></li>
+                <li><button class="out"><a class="nav-link"  href="">Signup</a></button></li>
+                <li><button class="out"><a class="nav-link" href="">Logout</a></button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <nav class="side-nav">
+            <ul class="side-links">
+                <li class="side-link"><a href=""><ion-icon name="apps"></ion-icon></a></li><!--All-->
+                <li class="side-link"><a href=""><ion-icon name="today"></ion-icon></a></li><!--Personal-->
+                <li class="side-link"><a href=""><ion-icon name="heart-circle"></ion-icon></a></li><!--Star-->
+                <li class="side-link"><a href=""><img src="" alt="">Pro</a></li><!--Profile-->
+            </ul>
+        </nav>
+        <section class="detail-container">
+            <div class="first">
+              {% for item in scholarships %}
+                <div class="d-scholarships">
+                    <div class="d-scholarship">   
+                        <div class="d-star"><input type="checkbox" name="star" id="check"></div>
+                        <div class="d-title">
+                            <a href="/scholarships/{{item.slug}}" style="color:black" >
+                                {{ item.title }}  
+                            </a> 
+                        </div>
+                        <div class="d-domain">{{item.domain}}</div>  
+                    </div>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="second">
+                <div class="sec">
+                    <input type="checkbox" name="" id="">
+                    <button>close</button>
+                </div>
+                <div class="post">
+                    <h1 class="post-title">{{ scholarship.title }}</h1>
+                    <h4 class="post-domain">{{ scholarship.domain }}</h4>
+                    <div class="post-image">
+                        <img src="../../static/{{ scholarship.thumb.url }}" alt="Post-image">
+                    </div><br/><br/>
+                     <p class="post-dated">PostedOn : {{ scholarship.postedOn }}</p>
+                    <p class="post-criteria">Scholarship criteria: {{ scholarship.criteria }} </p>
+                    <p class="post-description">
+                          {{ scholarship.body }}
+                    </p>
+                    <p class="post-deadline">Deadline :{{ scholarship.deadline }}</p>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+</div>
+
+{% endblock %}

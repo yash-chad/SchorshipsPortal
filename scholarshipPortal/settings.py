@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'scholarships'
+    'scholarships',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,"assets"),
 )
+
+# #URL where we can see uploaded media
+# MEDIA_URL = '/media/'
+# #Directory to store uploadaed media
+# MEDIA_ROOT = os.path.join(BASE_DIR,'media')
