@@ -12,7 +12,7 @@ def scholarship_list(request):
 def scholarship_details(request,slug):
     scholarships = Scholarship.objects.all()
     scholarship = Scholarship.objects.get(slug=slug)
-    return render(request, 'scholarships/scholarship_details.html', { 'scholarship': scholarship })
+    return render(request, 'scholarships/detail.html', { 'scholarship': scholarship , 'scholarships': scholarships})
 
 
 def edit(request):
