@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<link rel="stylesheet" href="{% static 'bot/styles.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<form action="display">
+	<div class="container">
+		<div class="msg-header">
+			<div class="msg-header-img">
+			<img src="{% static 'bot/image.jpg' %}">
+			</div>
+			<div class="active">
+				<h4> ChatBot</h4>
+				
+			</div>
+		</div>
+	<div class="chat-page">
+	<div class="msg-inbox">
+		<div class="chats">
+		<div class="msg-page">
+			{% for conv in conversations %}
+			<div class="received-chats">
+			<div class="received-msg">
+			<div class="received-msg-inbox">
+			<p>  {{conv.question}}  </p>
+			</div>
+			</div>
+			</div>
+
+			<div class="outgoing-chats">
+			<div class="outgoing-chats-msg">
+			<p>  {{conv.answer}}  </p>
+			</div>
+			</div>
+			{% endfor %}
+
+
+		</div>					
+		</div>
+	</div>
+	<div class="msg-bottom">
+		<div class="input-group">
+		<input type="text" name="question" class="form-control" placeholder="enter question here ..">
+			<div class="input-group-append">
+			<button class="input-group-text" type="submit"><i class="fa fa-paper-plane"></i></button>
+			</div>
+		</div>
+
+	</div>
+	</div>
+
+</div>
+</form>
+</body>
+</html>
