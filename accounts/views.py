@@ -44,45 +44,10 @@ def signup(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.is_active = False
+            # user.is_active = False
             user.save()
-            current_site = get_current_site(request)
-            mail_subject = 'Activate your blog account.'
-            message = render_to_string('acc_active_email.html', {
-                'user': user,
-                'domain': current_site.domain,
-                'uid':urlsafe_base64_encode(force_bytes(user.pk)),
-                'token':account_activation_token.make_token(user),
-            })
-
-            to_email = form.cleaned_data.get('email')
-            me = ''
-            my_password = ""
-            you = to_email
-
-            msg = MIMEMultipart('alternative')
-            msg['Subject'] = "Activate your blog account."
-            msg['From'] = '' 
-            msg['To'] = to_email
-            part2 = MIMEText(message, 'html')
-            msg.attach(part2)
-
-            # Send the message via gmail's regular server, over SSL - passwords are being sent, afterall
-            s = smtplib.SMTP_SSL('smtp.gmail.com')
-            # uncomment if interested in the actual smtp conversation
-            # s.set_debuglevel(1)
-            # do the smtp auth; sends ehlo if it hasn't been sent already
-            s.login(me, my_password)
-
-            s.sendmail(me, you, msg.as_string())
-            s.quit()
-            # email = EmailMessage(
-            #             mail_subject, message, to=[to_email]
-            # )
-            # email.send()
-            return HttpResponse('Please confirm your email address to complete the registration')
-
-            
+            login(request, user)
+            return redirect('scholarships:scholarship_list')        
     else:
         form =  SignUpForm()
     return render(request,'accounts/signup.html',{'form':form})
@@ -99,8 +64,6 @@ def login_view(request):
                 return redirect(request.POST.get('next'))
             else:
                 return redirect('scholarships:scholarship_list')
-            
-            
     else:
         form=AuthenticationForm()
 
@@ -131,3 +94,6 @@ def activate(request, uidb64, token):
         # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
         return HttpResponse('Activation link is invalid!')
+
+# iamawesome12345
+

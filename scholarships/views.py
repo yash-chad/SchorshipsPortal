@@ -7,9 +7,10 @@ from django.contrib.auth.decorators import login_required
 
 def scholarship_list(request):
     scholarships = Scholarship.objects.all()
-    return render(request, 'scholarships/scholarship_list.html', { 'scholarships': scholarships })
+    return render(request, 'scholarships/all.html', { 'scholarships': scholarships })
 
 def scholarship_details(request,slug):
+    scholarships = Scholarship.objects.all()
     scholarship = Scholarship.objects.get(slug=slug)
     return render(request, 'scholarships/scholarship_details.html', { 'scholarship': scholarship })
 
@@ -45,3 +46,4 @@ def edit(request):
         profile=Profile.objects.get(User=user)
         return render(request,'scholarships/edit_profile.html',{'profile':profile})
     
+

@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details</title>
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-    <script src="https://kit.fontawesome.com/cdb8be5d1b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="devs">
+
+{% extends 'base_layout.html' %}
+{% block content%}
+<div class="devs">
     <header>
         <div class="logo-container">
             
@@ -38,69 +31,19 @@
         </nav>
         <section class="detail-container">
             <div class="first">
+              {% for item in scholarships %}
                 <div class="d-scholarships">
                     <div class="d-scholarship">   
                         <div class="d-star"><input type="checkbox" name="star" id="check"></div>
-                        <div class="d-title">Lorem Ipsum is simply dummy text of the printing an</div>
-                        <div class="d-domain">MBA</div>  
-                    </div>
-                    <div class="d-scholarship">   
-                        <div class="d-star"><input type="checkbox" name="star" id="check"></div>
-                        <div class="d-title">Lorem Ipsum is simply dummy text of the printing an</div>
-                        <div class="d-domain">MBA</div>  
-                    </div>
-                    <div class="d-scholarship">   
-                        <div class="d-star"><input type="checkbox" name="star" id="check"></div>
-                        <div class="d-title">Lorem Ipsum is simply dummy text of the printing an</div>
-                        <div class="d-domain">MBA</div>  
-                    </div>
-                    <div class="d-scholarship">   
-                        <div class="d-star"><input type="checkbox" name="star" id="check"></div>
-                        <div class="d-title">Lorem Ipsum is simply dummy text of the printing an</div>
-                        <div class="d-domain">MBA</div>  
-                    </div>
-                    <div class="d-scholarship">   
-                        <div class="d-star"><input type="checkbox" name="star" id="check"></div>
-                        <div class="d-title">Lorem Ipsum is simply dummy text of the printing an</div>
-                        <div class="d-domain">MBA</div>  
-                    </div>
-                    <div class="d-scholarship">   
-                        <div class="d-star"><input type="checkbox" name="star" id="check"></div>
-                        <div class="d-title">Lorem Ipsum is simply dummy text of the printing an</div>
-                        <div class="d-domain">MBA</div>  
-                    </div>
-                    <div class="d-scholarship">   
-                        <div class="d-star"><input type="checkbox" name="star" id="check"></div>
-                        <div class="d-title">Lorem Ipsum is simply dummy text of the printing an</div>
-                        <div class="d-domain">MBA</div>  
-                    </div>
-                    <div class="d-scholarship">   
-                        <div class="d-star"><input type="checkbox" name="star" id="check"></div>
-                        <div class="d-title">Lorem Ipsum is simply dummy text of the printing an</div>
-                        <div class="d-domain">MBA</div>  
-                    </div>
-                    <div class="d-scholarship">   
-                        <div class="d-star"><input type="checkbox" name="star" id="check"></div>
-                        <div class="d-title">Lorem Ipsum is simply dummy text of the printing an</div>
-                        <div class="d-domain">MBA</div>  
-                    </div>
-                    <div class="d-scholarship">   
-                        <div class="d-star"><input type="checkbox" name="star" id="check"></div>
-                        <div class="d-title">Lorem Ipsum is simply dummy text of the printing an</div>
-                        <div class="d-domain">MBA</div>  
-                    </div>
-                    <div class="d-scholarship">   
-                        <div class="d-star"><input type="checkbox" name="star" id="check"></div>
-                        <div class="d-title">Lorem Ipsum is simply dummy text of the printing an</div>
-                        <div class="d-domain">MBA</div>  
-                    </div>
-                    <div class="d-scholarship">   
-                        <div class="d-star"><input type="checkbox" name="star" id="check"></div>
-                        <div class="d-title">Lorem Ipsum is simply dummy text of the printing an</div>
-                        <div class="d-domain">MBA</div>  
+                        <div class="d-title">
+                            <a href="/scholarships/{{item.slug}}" style="color:black" >
+                                {{ item.title }}  
+                            </a> 
+                        </div>
+                        <div class="d-domain">{{item.domain}}</div>  
                     </div>
                 </div>
-          
+              {% endfor %}
             </div>
             <div class="second">
                 <div class="sec">
@@ -108,21 +51,23 @@
                     <button>close</button>
                 </div>
                 <div class="post">
-                    <h1 class="post-title">Lorem ipsum dolor sit amet.</h1>
-                    <h4 class="post-domain">Domain: Lorem, ipsum.</h4>
+                    <h1 class="post-title">{{ scholarship.title }}</h1>
+                    <h4 class="post-domain">{{ scholarship.domain }}</h4>
                     <div class="post-image">
-                        <img src="/images/1.jpg" alt="Post-image">
-                    </div><br><br>
-                    <p class="post-criteria">Scholarship criteria: 8.5%</p>
+                        <img src="../../static/{{ scholarship.thumb.url }}" alt="Post-image">
+                    </div><br/><br/>
+                     <p class="post-dated">PostedOn : {{ scholarship.postedOn }}</p>
+                    <p class="post-criteria">Scholarship criteria: {{ scholarship.criteria }} </p>
                     <p class="post-description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis natus sapiente atque magni! Optio, sapiente perspiciatis. Iure perspiciatis quisquam blanditiis est voluptatem, enim tempore dolores! Cum numquam, harum excepturi nostrum necessitatibus praesentium quaerat dolorum unde! Magnam ex, excepturi, qui quibusdam reprehenderit vero mollitia optio expedita molestiae non soluta quo. Ipsum!
+                          {{ scholarship.body }}
                     </p>
-                    <p class="post-deadline">Deadline: 85-65-4126</p>
-                    <p class="post-dated">~ posted on 24-85-3521</p>
+                    <p class="post-deadline">Deadline :{{ scholarship.deadline }}</p>
                     
                 </div>
             </div>
         </div>
     </main>
 
-</body>
+</div>
+
+{% endblock %}
