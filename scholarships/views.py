@@ -36,9 +36,9 @@ def edit(request):
         profile.User.email =request.GET.get('email')
         profile.User.first_name = request.GET.get('firstname')
         profile.User.last_name =request.GET.get('lastname') 
-        profile.save()
         profile.profile_img = request.FILES('pfp')
         profile.Resume = request.FILES('resume')
+        profile.save()
         return redirect('scholarships:profile',{'profile':profile})
     else:
         user = request.user

@@ -39,7 +39,9 @@
         </nav>
        <div class="container">
             <div class="profile-container">
-                <form action="{ scholarships:edit }" method="post">
+                
+                <form action="{% url 'scholarships:edit' %}" method="post">
+                    {% csrf_token %}
                     <div class="dp">
                         <img name='pfp' class="dp-img" src="{{ profile.profile_img.url }}" alt="profile picture">
                         <div class="change-dp">
@@ -55,8 +57,8 @@
                         <div class="p1">
                             <label for="">Name:</label>
                             <div class="fullname editname">
-                            <input class="edit-input" type="text" name="firstname" value="{{ profile.User.first_name}}" onfocus="this.select()" spellcheck="false" required> 
-                            <input class="edit-input" type="text" name="lastname" value="{{ profile.User.last_name}}" onfocus="this.select()" spellcheck="false" required> 
+                            <input class="edit-input" style="width: 30%;float: left;" type="text" name="firstname" value="{{ profile.User.first_name}}" onfocus="this.select()" spellcheck="false" required> 
+                            <input class="edit-input" style="width: 30%;float: left;" type="text" name="lastname" value="{{ profile.User.last_name}}" onfocus="this.select()" spellcheck="false" required> 
                             </div><br>
                             <label for="">E-mail:</label>
                             <div class="mail">
@@ -66,21 +68,21 @@
                         <div class="p2">
                             <label for="browse" class="stat">
                                 {% if profile.Resume  %}
-                                    Update your resume
+                                   <p>Update your resume</p> 
                                 {% else %}
-                                    Add your resume
+                                    <p> Add your resume</p>
                                 {% endif %}
                                 <!-- Display doc link or so -->
                             </label>
     
                             <div class="doc">
-                                <input type="file" id="browse" name="resume" class="browse"  value="{{profile.Resume.name}}">
+                                <input type="file" id="browse" name="resume" class="browse"  value="{{profile.Resume}}">
                             </div>
                         </div>
                     </div>
                     <div class="btns">
                         <button type="submit" class="edit-save">Save</button>
-                        <button type="reset" class="edit-cancel"><a href="{ scholarships:profile }">Cancel</a></button>
+                        <button type="reset" class="edit-cancel"><a href="{% url 'scholarships:profile' %}">Cancel</a></button>
                     </div>
                 </form>  
             </div>
