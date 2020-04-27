@@ -99,6 +99,8 @@ def login_view(request):
                 return redirect(request.POST.get('next'))
             else:
                 return redirect('scholarships:scholarship_list')
+            
+            
     else:
         form=AuthenticationForm()
 
