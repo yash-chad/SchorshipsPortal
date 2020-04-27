@@ -1,7 +1,52 @@
-{% extends 'base_layout.html' %}
-
-{% block content %}
-       <div class="container">
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script src="https://kit.fontawesome.com/cdb8be5d1b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="city">
+    <header>
+        <div class="logo-container">   
+            <section class="logo">
+                <i class="fab fa-accusoft"></i>
+            </section>
+            <h2> <a class="name" href="{% url 'scholarships:scholarship_list' %}">Ataraxia</a> </h2>
+        </div>
+        
+        <nav class="top-nav">
+            <ul class="nav-links">
+                {% if user.is_authenticated %}
+                    <li>
+                        <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button class="out"><a class="nav-link" href="">Logout</a></button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li><button  class="in"><a class="nav-link" href="{% url 'accounts:login' %}">Login</a></button></li>
+                    <li><button  class="out"><a class="nav-link" href="{% url 'accounts:signup' %}">Signup</a></button></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <nav class="side-nav">
+            <ul class="side-links">
+                <li class="side-link"><a href=""><ion-icon name="apps"></ion-icon></a></li><!--All-->
+                <li class="side-link"><a href=""><ion-icon name="today"></ion-icon></a></li><!--Personal-->
+                <li class="side-link"><a href=""><ion-icon name="heart-circle"></ion-icon></a></li><!--Star-->
+                <li class="side-link"><a href=""><ion-icon name="chatbubbles"></ion-icon></a></li><!--Star-->
+                <li class="side-link"><a href=""><img src="/images/t2.jpg" alt=""></a></li><!--Profile-->
+            </ul>
+        </nav>
+        
+        <div class="container">
             <div class="profile-container">
                 <div class="dp">
                     <img class="dp-img" src="{{ profile.profile_img.url }}" alt="profile picture">
@@ -44,4 +89,7 @@
                 <button class="edit"><a href="{% url 'scholarships:edit' %}">Edit Profile</a> </button>
             </div>
        </div>
-  {% endblock %}
+    </main>    
+    </body>
+</html>
+
