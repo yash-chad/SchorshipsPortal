@@ -22,6 +22,4 @@ urlpatterns = [
     path('scholarships/',include('scholarships.urls')),
     path('chat/',include('talking_bot.urls'))
 ]
-
-
 urlpatterns += staticfiles_urlpatterns()
