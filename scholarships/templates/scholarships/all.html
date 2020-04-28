@@ -1,0 +1,56 @@
+{% extends 'base_layout.html' %}
+
+{% block content%}
+<div class="devs">
+    <header>
+        <div class="logo-container">
+            
+            <section class="logo">
+                <i class="fab fa-accusoft"></i>
+            </section>
+           
+            <h2 class="name">Ataraxia</h2>
+        </div>
+        
+        <nav class="top-nav">
+            <ul class="nav-links">
+                <li ><button class="in "><a class="nav-link" href="  ">Login</a></button></li>
+                <li><button class="out"><a class="nav-link"  href="">Signup</a></button></li>
+                <li><button class="out"><a class="nav-link" href="">Logout</a></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+     
+            <nav class="side-nav">
+                <ul class="side-links">
+                    <li class="side-link"><a href=""><ion-icon name="apps"></ion-icon></a></li><!--All-->
+                    <li class="side-link"><a href=""><ion-icon name="today"></ion-icon></a></li><!--Personal-->
+                    <li class="side-link"><a href=""><ion-icon name="heart-circle"></ion-icon></a></li><!--Star-->
+                    <li class="side-link"><a href=""><img src="" alt="">Pro</a></li><!--Profile-->
+                </ul>
+            </nav>
+        <section class="container">
+            <div class="scholarships">
+                {% for scholarship in scholarships %}
+                    <div class="scholarship">       
+                        <div class="star"><input type="checkbox" name="star" id="check"></div>
+                        <div class="title">
+                            <a href="/scholarships/{{scholarship.slug}}" style="color:black" >
+                               {{ scholarship.title }}  
+                            </a>                      
+                        </div>
+                        <!-- <div class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat et ex nisi nihil saepe praesentium!</div> -->
+                        <div class="domain">{{ scholarship.domain }}</div>
+                        <div class="criteria">{{ scholarship.criteria }}</div>
+                        <div class="deadline">{{ scholarship.deadline }}</div> 
+                    </div>
+                {% endfor %}
+            </div>         
+        </section>
+        
+    </main>
+    
+</div>
+{% endblock %}
