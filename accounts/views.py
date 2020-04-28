@@ -56,13 +56,13 @@ def signup(request):
             })
 
             to_email = form.cleaned_data.get('email')
-            me = 'variegatedlark@gmail.com'
-            my_password = "rockhopp"
+            me = ''
+            my_password = ""
             you = to_email
 
             msg = MIMEMultipart('alternative')
             msg['Subject'] = "Activate your blog account."
-            msg['From'] = 'variegatedlark@gmail.comm' 
+            msg['From'] = '' 
             msg['To'] = to_email
             part2 = MIMEText(message, 'html')
             msg.attach(part2)
