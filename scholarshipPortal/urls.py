@@ -22,13 +22,9 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('scholarships/',include('scholarships.urls')),
-    path('chat/',include('talking_bot.urls'))
+    path('chat/',include('talking_bot.urls')),
     path('accounts/',include('accounts.urls'))
 ]
-<<<<<<< HEAD
-urlpatterns += staticfiles_urlpatterns()
-=======
 
 urlpatterns += staticfiles_urlpatterns()
-# urlpatterns+= static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
->>>>>>> b8a24efaf4c9bf1402e62f528cffc4e75a7388fc
+

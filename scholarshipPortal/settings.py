@@ -38,11 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'scholarships',
-<<<<<<< HEAD
-    'talking_bot'
-=======
+    'talking_bot',
     'accounts'
->>>>>>> b8a24efaf4c9bf1402e62f528cffc4e75a7388fc
+
 ]
 
 MIDDLEWARE = [
@@ -130,12 +128,12 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR,"assets"),
 )
 
-<<<<<<< HEAD
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-=======
+
 # #URL where we can see uploaded media
 # MEDIA_URL = '/media/'
 # #Directory to store uploadaed media
 # MEDIA_ROOT = os.path.join(BASE_DIR,'media')
->>>>>>> b8a24efaf4c9bf1402e62f528cffc4e75a7388fc
+

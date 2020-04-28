@@ -23,7 +23,7 @@ def train(request):
 	stemmer = LancasterStemmer()
 	
 	global data
-	with open('E:\\MAIN\\intents.json') as file:
+	with open('D:\Desktop\DjangoNinja\Project\intents.json') as file:
 		data = json.load(file)
 	global words
 	global labels
@@ -128,7 +128,7 @@ from PIL import Image
 import re
 
 def show(request):
-	tess.pytesseract.tesseract_cmd = r'C:\Users\Admin\AppData\Local\Tesseract-OCR\tesseract.exe'
+	tess.pytesseract.tesseract_cmd = r'C:\Users\HP\AppData\Local\Tesseract-OCR\tesseract.exe'
 	img = Image.open('media/res.png')
 	text = tess.image_to_string(img)
 	lines = [el.strip().lower() for el in text.split('\n') if len(el.strip()) > 0]

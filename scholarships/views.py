@@ -2,15 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from scholarships.models import Scholarship
 
-<<<<<<< HEAD
-def scholarship_list(request):	
-	scholarships = Scholarship.objects.all()
-	return render(request, 'scholarships/scholarship_list.html', { 'scholarships': scholarships })
-=======
 def scholarship_list(request):
     scholarships = Scholarship.objects.all()
     return render(request, 'scholarships/all.html', { 'scholarships': scholarships })
->>>>>>> b8a24efaf4c9bf1402e62f528cffc4e75a7388fc
 
 def scholarship_details(request,slug):
     scholarships = Scholarship.objects.all()
