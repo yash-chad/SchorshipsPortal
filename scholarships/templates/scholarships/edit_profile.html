@@ -40,12 +40,12 @@
        <div class="container">
             <div class="profile-container">
                 
-                <form action="{% url 'scholarships:edit' %}" method="post">
+                <form action="{% url 'scholarships:edit' %}" method="post" >
                     {% csrf_token %}
                     <div class="dp">
-                        <img name='pfp' class="dp-img" src="{{ profile.profile_img.url }}" alt="profile picture">
+                        <img class="dp-img" src="{{ profile.profile_img.url }}" alt="profile picture">
                         <div class="change-dp">
-                            <input type="file" accept="image/*"  name="" id="cam">
+                            <input type="file" accept="image/*" name='pfp' id="cam">
                             <label id="cam-label" for="cam"><ion-icon name="image"></ion-icon></label>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                             </label>
     
                             <div class="doc">
-                                <input type="file" id="browse" name="resume" class="browse"  value="{{profile.Resume}}">
+                                <input type="file" id="browse" name="resume" class="browse"  value="{{profile.Resume.name}}">
                             </div>
                         </div>
                     </div>

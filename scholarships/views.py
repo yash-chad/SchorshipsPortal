@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from scholarships.models import Scholarship,Profile
 from django.contrib.auth.decorators import login_required
@@ -14,8 +14,6 @@ def scholarship_details(request,slug):
     return render(request, 'scholarships/scholarship_details.html', { 'scholarship': scholarship })
 
 
-def edit(request):
-    pass
 
 @login_required(login_url="/accounts/login/")
 def profile(request):
@@ -29,17 +27,18 @@ def profile(request):
 
 def edit(request):
     
-    if request.user=='POST':
+    if request.method=='POST':
+        print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         User = request.user
         profile=Profile.objects.get(User=User)
-        profile.User.username = request.GET.get('username')
-        profile.User.email =request.GET.get('email')
-        profile.User.first_name = request.GET.get('firstname')
-        profile.User.last_name =request.GET.get('lastname') 
-        profile.profile_img = request.FILES('pfp')
-        profile.Resume = request.FILES('resume')
+        profile.User.username = request.POST.get('username')
+        profile.User.email =request.POST.get('email')
+        profile.User.first_name = request.POST.get('firstname')
+        profile.User.last_name =request.POST.get('lastname') 
+        profile.profile_img = request.FILES['pfp']
+        profile.Resume = request.FILES['resume']
         profile.save()
-        return redirect('scholarships:profile',{'profile':profile})
+        return redirect('scholarships:profile')
     else:
         user = request.user
         profile=Profile.objects.get(User=user)

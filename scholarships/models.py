@@ -22,7 +22,7 @@ class Scholarship(models.Model):
 class Profile(models.Model):
     User = models.OneToOneField(User,on_delete=models.CASCADE)
     Resume = models.FileField(upload_to='media/docs/',default=None,null=True,blank=True)
-    profile_img = models.ImageField(upload_to='media/images/', default="images/default.png")
+    profile_img = models.ImageField(upload_to='images/', default="images/default.png")
 
     def __str__(self):
         return self.User.username
