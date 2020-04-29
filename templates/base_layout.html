@@ -10,25 +10,6 @@
         <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  -->
     </head>
     <body style="background-color: grey;">
-        <header>
-            <h1> <a href="{% url 'scholarships:scholarship_list' %}">Scholarships</a> </h1>
-            <nav>
-                <ul>
-                    {% if user.is_authenticated %}
-                        <li>
-                            <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
-                                {% csrf_token %}
-                                <button type="submit">Logout</button>
-                            </form>
-                        </li>
-                    {% else %}
-                        <li><button><a href="{% url 'accounts:login' %}">Login</a></button></li>
-                        <li><button><a href="{% url 'accounts:signup' %}">Signup</a></button></li>
-                    {% endif %}
-                </ul>
-                
-            </nav>
-        </header>
         <div class="wrapper">
             {% block content %}
             {% endblock %}

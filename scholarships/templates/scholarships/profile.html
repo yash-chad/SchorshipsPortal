@@ -30,9 +30,9 @@
         </nav>
        <div class="container">
             <div class="profile-container">
-                <div class="dp">
+                <!-- <div class="dp">
                     <img class="dp-img" src="../../static/images/t2.jpg" alt="profile picture">
-                </div>
+                </div> -->
                 <div class="username">
                    <h1>Username</h1> 
                 </div>
@@ -44,22 +44,29 @@
                         </div><br>
                         <label for="">E-mail:</label>
                         <div class="mail">
-                            name@x.com
+                           {{email}} 
                         </div>
-                    </div>
-                    <div class="p2">
-                        <div class="stat">
-                            Update your profile
-                            <!-- Display doc link or so -->
-                        </div>
+                    
+                   
+                    <div>Some details we extracted :</div><br/>
+                    {% for p in phone %}
+                        <div>Phone {{p}}</div>
+                    {% endfor %}
+                    <b>Education</b>
+                    {% for e in education %}
+                        <div> {{e}}</div><br/>
+                    {% endfor %}
+                    
+                     <b>Scores  (Precentage/GPA):</b>
+                    {% for s in scores %}
+                        <div> {{s}}</div><br/>
+                    {% endfor %}
 
-                        <!-- <div class="doc">
-                            
-                           <label for="" Browse></label> <input type="file">
-                        </div> -->
+
                     </div>
                 </div>
-                <button class="edit">Edit Profile</button>
+                <form >
+                <button class="edit"><a href="{% url 'scholarships:specific' %}">Continue</a></button>
             </div>
        </div>
     </main>

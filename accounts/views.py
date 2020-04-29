@@ -7,7 +7,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.template.loader import render_to_string
-from .forms import SignUpForm
+from .forms import SignUpForm,LoginForm
 from .tokens import account_activation_token
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.http import HttpResponse
@@ -23,6 +23,7 @@ from django.core.mail import EmailMessage
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+# from scholarships.models import Profile
 
 # Create your views here.
 # def signup_view(request):
@@ -42,11 +43,10 @@ def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            # user.is_active = False
+            user = form.save()
             user.save()
-            login(request, user)
-            return redirect('scholarships:scholarship_list')        
+            login(request,user) 
+            return redirect('scholarships:form') 
     else:
         form =  SignUpForm()
     return render(request,'accounts/signup.html',{'form':form})
@@ -54,7 +54,7 @@ def signup(request):
 
 def login_view(request):
     if request.method=='POST':
-        form=AuthenticationForm(data=request.POST)
+        form=LoginForm(data=request.POST)
         if form.is_valid():
             #login
             user=form.get_user()
@@ -63,10 +63,8 @@ def login_view(request):
                 return redirect(request.POST.get('next'))
             else:
                 return redirect('scholarships:scholarship_list')
-
     else:
         form=AuthenticationForm()
-
     return render(request,'accounts/login.html',{'form':form})
 
 
@@ -86,12 +84,11 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         login(request, user)
+        profile = Profile(User=user,profile_img='images/default.png')
+        profile.save()
         return render(request,'accounts/sent.html')
         # return redirect('scholarships:scholarship_list')
         # return redirect('home')
         # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
     else:
         return HttpResponse('Activation link is invalid!')
-
-
-# iamawesome12345

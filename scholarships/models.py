@@ -17,3 +17,11 @@ class Scholarship(models.Model):
 
     def snippet(self):
         return self.body[:100] + '...'
+
+from django.db import models
+
+# Create your models here.
+class Images(models.Model):
+	name = models.CharField(max_length = 100, blank = True, null = True)
+	img = models.ImageField()
+	

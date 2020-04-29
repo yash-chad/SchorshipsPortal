@@ -1,5 +1,8 @@
 <form method="POST" enctype="multipart/form-data"> 
+    <h1>Looks like you haven't uploaded your resume/marksheet yet?</h1><br/>
+    <h2>Kindly upload to help us know you better!!</h2>
     {% csrf_token %} 
     {{ form.as_p }} 
     <input type="submit" value="Submit"> 
+    <button> <a href="{% url 'scholarships:scholarship_list' %}">Continue without uploading</a></button>
 </form>

@@ -1,11 +1,47 @@
-{% extends 'base_layout.html' %}
-{% block content %}
-    <h1>Signup</h1>
 
-    <form action="" class="site-form" action="/accounts/signup/" method="post">
-        {% csrf_token %}
-        {{form}}
-        <input type="submit" value="signup">
-    </form>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body  style="background-image: url('{% static 'images/t3.jpg' %}');" class="babies">
+    <div class="babies">
+        <div class="login-logo">
+            <i class="fab fa-accusoft"></i>
+            <h2 class="name">Ataraxia</h2>
+        </div>
+        
+        <div class="right">
+            <div class="login">
+                <h1 id="Sign">Sign Up</h1>
+                <form class="sign-form" action="/accounts/signup/" method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        {{ field.label_tag }}
+                        {{ field }}
+                
+                        {% for error in field.errors %}
+                        {{ error }}
+                        {% endfor %}
 
-{% endblock %}
+                    {% endfor %}
+                    <button id="s-btn" type="submit">SignUp ></button>
+                    <a href="">Already have an account?</a>
+                </form> 
+            </div>
+        </div>
+        
+        <div class="login-info">
+            <h1 class="heading">Don't have an account?</h1>
+            <p class="describe">
+                Get personalized scholarships and many exciting features by creating your Ataraxia account 
+            </p>
+        </div>
+        
+    </div>
+</body>
+</html>

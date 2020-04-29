@@ -264,7 +264,7 @@ main{
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y:top;
-    color: white;
+    color: white; 
 }
 
 .login-logo{
@@ -332,7 +332,7 @@ main{
     font-size: 1em;
 }
 
-.right input{
+.rightinput{
     width: 100%;
     border: none;
     outline: none;
@@ -346,16 +346,27 @@ main{
     /* background-color: pink; */
 }
 
-.f-name{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+ .f-name{
+  /*  display: grid;
+    grid-template-columns: 1fr 1fr; */
+    /* width:48%; */
+    /* float:left; */
+    border: none;
+    outline: none;
+    background: transparent;
+    color: rgba(255,255,255,0.95);
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+    padding: 7px 0px;
+    font-size: 1.1em;
+    margin:0px 0px 20px;
+    background:transparent;
 }
 
 .field{
     width: 98%;
 }
 
-.right input:active,.right input:focus{
+.rightinput:active,.rightFinput:focus{
     border-bottom:1px solid rgba(255,255,255,0.9);
 }
 
@@ -626,7 +637,21 @@ main{
     font-weight: 500;
 }
 
+.editname{
+    display: flex;
+}
 
+.resume a{
+    color:rgba(0,0,0,0.7);
+     font-style: italic;
+     font-weight: normal;
+     font-size:90% ;
+}
+
+.resume p{
+    font-size:90% ;
+    margin-left: 40px;
+}
 
 .edit{
     border: 0;
@@ -659,6 +684,8 @@ main{
     font-weight: 500;
     font-size: xx-large;
     text-align: center;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255,255,255,0.8);
 }
 
 .browse{
@@ -684,6 +711,8 @@ main{
     margin:0px 10px
 }
 
+
+
 .edit-save:hover,.edit-cancel:hover,.edit-save:active,.edit-cancel:active{
     box-shadow: 2px 3px 5px lightgrey;
 }
@@ -705,6 +734,11 @@ main{
     background-color: #fff;
     border: 1px solid rgb(247, 92, 92) ;
     color: rgb(247, 92, 92);
+}
+
+.edit-cancel a{
+    text-decoration: none;
+    color: rgb(247, 92, 92) ;
 }
 
 .change-dp{
